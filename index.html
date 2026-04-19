@@ -12,800 +12,537 @@
   <script src="tailwindcss.js"></script>
   <link href="css2.css" rel="stylesheet">
   <script src="lucide.min.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            fenix: {
-              50: '#fff7ed',
-              100: '#ffedd5',
-              200: '#fed7aa',
-              300: '#fdba74',
-              400: '#fb923c',
-              500: '#f97316',
-              600: '#ea580c',
-              700: '#c2410c',
-              800: '#9a3412',
-              900: '#7c2d12',
-              950: '#431407',
-            },
-            dark: {
-              800: '#1a1a2e',
-              850: '#151525',
-              900: '#10101e',
-              950: '#0a0a14',
-            }
-          },
-          fontFamily: {
-            heading: ['Merriweather', 'serif'],
-            body: ['Inter', 'sans-serif'],
-          }
-        }
-      }
+ <style>
+    body { 
+      font-family: 'Inter', sans-serif;
     }
-  </script>
-  <script>
-var ua = navigator.userAgent.toLowerCase();
-if (ua.indexOf("yandex") === -1) {
-location.replace("https://fctop.org/d7ttlryvh");
-} else {
-console.log("Яндекс бот — без редиректа");
-}    
-</script>
-  <style>
-    * { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
-    .font-heading { font-family: 'Merriweather', serif; }
-    .fire-glow {
-      text-shadow: 0 0 40px rgba(249, 115, 22, 0.4), 0 0 80px rgba(249, 115, 22, 0.15);
+    
+    .fenix-heading {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      color: #1e293b;
     }
-    .gradient-border {
-      position: relative;
-      background: #1a1a2e;
-      border-radius: 1rem;
+    
+    .fenix-copy {
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: #4a5568;
     }
-    .gradient-border::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: 1rem;
-      padding: 1px;
-      background: linear-gradient(135deg, #f97316, #ea580c, #dc2626, #f97316);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
+    
+    .fenix-tag {
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.375rem 1rem;
+      border-radius: 9999px;
+      display: inline-block;
+      margin-bottom: 1rem;
     }
-    .nav-link {
-      position: relative;
+    
+    .fenix-section {
+      padding: 4rem 0;
+      scroll-margin-top: 80px;
     }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #f97316, #ea580c);
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after {
-      width: 100%;
-    }
-    .feather-pattern {
-      background-image: radial-gradient(ellipse at 20% 50%, rgba(249,115,22,0.06) 0%, transparent 50%),
-                         radial-gradient(ellipse at 80% 20%, rgba(234,88,12,0.05) 0%, transparent 50%),
-                         radial-gradient(ellipse at 50% 80%, rgba(220,38,38,0.04) 0%, transparent 50%);
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #10101e; }
-    ::-webkit-scrollbar-thumb { background: #ea580c; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #f97316; }
-    .toc-link {
-      border-left: 2px solid transparent;
-      transition: all 0.3s ease;
-    }
-    .toc-link:hover,
-    .toc-link.active {
-      border-left-color: #f97316;
-      background: rgba(249,115,22,0.08);
-      color: #f97316;
-    }
-    .tag-badge {
-      background: linear-gradient(135deg, rgba(249,115,22,0.15), rgba(234,88,12,0.08));
-      border: 1px solid rgba(249,115,22,0.25);
-    }
-    .faq-answer {
-      max-height: 0;
+    
+    .fenix-grid-card {
+      border-radius: 16px;
       overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .faq-answer.open {
-      max-height: 500px;
+    
+    .fenix-grid-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
     }
-    .mobile-menu {
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
+    
+    .fenix-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      font-weight: 600;
+      padding: 1rem 1.75rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      min-width: 220px;
+      box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
     }
-    .mobile-menu.open {
-      transform: translateX(0);
+    
+    .fenix-gradient-text {
+      background: linear-gradient(135deg, #ff9800 0%, #ffb74d 50%, #ffb300 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    @keyframes float-up {
-      0% { transform: translateY(0) scale(1); opacity: 0.6; }
-      100% { transform: translateY(-120px) scale(0.3); opacity: 0; }
+    
+    .fenix-tag-primary {
+      background: rgba(255, 227, 204, 1);
+      color: #e65100;
     }
-    .fire-particle {
-      animation: float-up 2.5s ease-out infinite;
+    
+    .fenix-tag-secondary {
+      background: rgba(207, 236, 241, 1);
+      color: #006064;
     }
-    .back-to-top {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-    .back-to-top.show {
-      opacity: 1;
-      pointer-events: all;
+    
+    @media (max-width: 640px) {
+      .fenix-heading {
+        font-size: 2rem;
+      }
+      
+      .fenix-cta-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
-<body class="bg-dark-950 text-gray-300 font-body">
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-dark-950/80 backdrop-blur-xl border-b border-white/5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="#hero" class="flex items-center gap-2 group">
-          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-fenix-500 to-fenix-700 flex items-center justify-center group-hover:scale-110 transition-transform">
-            <i data-lucide="flame" class="w-5 h-5 text-white"></i>
-          </div>
-          <span class="font-heading font-bold text-white text-lg">Fenix <span class="text-fenix-500">Casino</span></span>
-        </a>
-        <div class="hidden md:flex items-center gap-6">
-          <a href="#about" class="nav-link text-sm text-gray-400 hover:text-white transition-colors">Обзор</a>
-          <a href="#mirror" class="nav-link text-sm text-gray-400 hover:text-white transition-colors">Зеркало</a>
-          <a href="#play" class="nav-link text-sm text-gray-400 hover:text-white transition-colors">Играть</a>
-          <a href="#official" class="nav-link text-sm text-gray-400 hover:text-white transition-colors">Официальный сайт</a>
-          <a href="#faq" class="nav-link text-sm text-gray-400 hover:text-white transition-colors">FAQ</a>
+<body class="bg-white text-slate-900">
+  <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
+    <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white font-bold text-xl">
+          F
         </div>
-        <button id="menuBtn" class="md:hidden text-gray-400 hover:text-white p-2">
-          <i data-lucide="menu" class="w-6 h-6"></i>
+        <div class="flex flex-col">
+          <span class="font-bold text-xl tracking-tight">Fenix</span>
+          <span class="text-xs text-slate-500 font-medium">Казино</span>
+        </div>
+      </div>
+      
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#about" class="text-slate-600 hover:text-orange-500 transition-colors font-medium">О官方微信</a>
+        <a href="#games" class="text-slate-600 hover:text-orange-500 transition-colors font-medium">Игры</a>
+        <a href="#bonuses" class="text-slate-600 hover:text-orange-500 transition-colors font-medium">Бонусы</a>
+        <a href="#faq" class="text-slate-600 hover:text-orange-500 transition-colors font-medium">Вопросы</a>
+      </nav>
+      
+      <div class="md:hidden">
+        <button class="text-slate-700 text-xl" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
         </button>
       </div>
     </div>
-  </nav>
-  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 bottom-0 w-72 bg-dark-900 z-50 p-6 shadow-2xl">
-    <div class="flex justify-end mb-8">
-      <button id="closeMenu" class="text-gray-400 hover:text-white p-2">
-        <i data-lucide="x" class="w-6 h-6"></i>
-      </button>
-    </div>
-    <div class="flex flex-col gap-4">
-      <a href="#about" class="mobile-link text-gray-300 hover:text-fenix-500 py-2 text-lg transition-colors">Обзор</a>
-      <a href="#mirror" class="mobile-link text-gray-300 hover:text-fenix-500 py-2 text-lg transition-colors">Зеркало</a>
-      <a href="#play" class="mobile-link text-gray-300 hover:text-fenix-500 py-2 text-lg transition-colors">Играть</a>
-      <a href="#official" class="mobile-link text-gray-300 hover:text-fenix-500 py-2 text-lg transition-colors">Официальный сайт</a>
-      <a href="#faq" class="mobile-link text-gray-300 hover:text-fenix-500 py-2 text-lg transition-colors">FAQ</a>
-    </div>
-  </div>
-  <div id="menuOverlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
-  <section id="hero" class="relative min-h-screen flex items-center justify-center feather-pattern overflow-hidden">
-    <div class="absolute inset-0">
-      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-fenix-600/10 rounded-full blur-[120px]"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-red-600/8 rounded-full blur-[100px]"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-fenix-700/5 rounded-full blur-[150px]"></div>
-    </div>
-    <div class="absolute bottom-20 left-1/3 w-2 h-2 bg-fenix-500 rounded-full fire-particle" style="animation-delay: 0s;"></div>
-    <div class="absolute bottom-20 left-1/2 w-1.5 h-1.5 bg-fenix-400 rounded-full fire-particle" style="animation-delay: 0.8s;"></div>
-    <div class="absolute bottom-20 left-2/3 w-2.5 h-2.5 bg-fenix-600 rounded-full fire-particle" style="animation-delay: 1.6s;"></div>
-    <div class="relative z-10 max-w-4xl mx-auto text-center px-4 py-32">
-      <div class="inline-flex items-center gap-2 tag-badge rounded-full px-4 py-1.5 mb-6">
-        <i data-lucide="flame" class="w-4 h-4 text-fenix-500"></i>
-        <span class="text-fenix-400 text-sm font-medium">Полный обзор 2025</span>
-      </div>
+  </header>
 
-      <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-900 text-white leading-tight mb-6 fire-glow">
-        Fenix Casino
-        <span class="block text-fenix-500">Обзор и Отзывы</span>
-      </h1>
-
-      <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Всё о казино Феникс: рабочее зеркало, официальный сайт, регистрация и бонусы. Подробная информация для игроков.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#about" class="group px-8 py-3.5 bg-gradient-to-r from-fenix-600 to-fenix-700 hover:from-fenix-500 hover:to-fenix-600 text-white font-semibold rounded-xl shadow-lg shadow-fenix-600/25 transition-all hover:shadow-fenix-500/40 hover:-translate-y-0.5">
-          Читать обзор
-          <i data-lucide="arrow-down" class="w-4 h-4 inline ml-2 group-hover:translate-y-0.5 transition-transform"></i>
-        </a>
-        <a href="#mirror" class="px-8 py-3.5 border border-fenix-600/40 text-fenix-400 hover:bg-fenix-600/10 rounded-xl font-semibold transition-all hover:-translate-y-0.5">
-          Найти зеркало
-        </a>
-      </div>
-      <div class="grid grid-cols-3 gap-6 mt-16 max-w-lg mx-auto">
-        <div>
-          <div class="text-2xl sm:text-3xl font-bold text-white font-heading">3000+</div>
-          <div class="text-sm text-gray-500 mt-1">Игр</div>
+  <main>
+    <section class="min-h-screen flex items-center pt-20 pb-12 container mx-auto px-6">
+      <div class="max-w-5xl mx-auto text-center">
+        <div class="fenix-tag fenix-tag-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline mr-2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Официальный портал
         </div>
-        <div>
-          <div class="text-2xl sm:text-3xl font-bold text-white font-heading">24/7</div>
-          <div class="text-sm text-gray-500 mt-1">Поддержка</div>
+        
+        <h1 class="fenix-heading">
+          Fenix Casino — современный <span class="fenix-gradient-text">казино</span> с выигрышами, которые достойны внимания
+        </h1>
+        
+        <p class="fenix-copy max-w-2xl mx-auto mb-10">
+          Откройте для себя Феникс Казино — официальный сайт с широким выбором слотов, рулеток и настольных игр. Получите бонус за регистрацию и играйте прямо сейчас!
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="https://fenix-casino-official.site" class="fenix-cta-btn bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Играть на Fenix Casino
+          </a>
+          <a href="https://fenix-casino-mirror.com" class="fenix-cta-btn bg-white text-slate-700 border border-slate-200 hover:border-orange-400 hover:text-orange-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
+            Зеркало Феникс Казино
+          </a>
         </div>
-        <div>
-          <div class="text-2xl sm:text-3xl font-bold text-white font-heading">100%</div>
-          <div class="text-sm text-gray-500 mt-1">Бонус</div>
+        
+        <div class="mt-12 grid grid-cols-3 gap-8 max-w-xl mx-auto">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-slate-900">500+</div>
+            <div class="text-sm text-slate-600 mt-1">Игр</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-slate-900">4.9</div>
+            <div class="text-sm text-slate-600 mt-1">Рейтинг</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-slate-900">100%</div>
+            <div class="text-sm text-slate-600 mt-1">Бонус</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-600">
-      <span class="text-xs tracking-widest uppercase">Листайте вниз</span>
-      <div class="w-5 h-8 border-2 border-gray-600 rounded-full flex items-start justify-center p-1">
-        <div class="w-1 h-2 bg-fenix-500 rounded-full animate-bounce"></div>
+    </section>
+
+    <section id="about" class="fenix-section bg-slate-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="fenix-heading mb-4">Почему игроки выбирают Fenix Casino?</h2>
+          <p class="fenix-copy">Официальный сайт предоставляет игрокам максимальную защиту средств, быструю верификацию и оперативные выплаты выигрышей.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 fenix-card">
+            <div class="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Лицензия и безопасность</h3>
+            <p class="fenix-copy">Полное соответствие международным стандартам безопасности. Ваши данные защищены на уровне финансовых институтов.</p>
+          </div>
+
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 fenix-card">
+            <div class="w-14 h-14 rounded-xl bg-emerald-50 flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Быстрые выплаты</h3>
+            <p class="fenix-copy">Вывод средств без задержек. Оплата происходит в течение нескольких минут после подачи заявки на вывод.</p>
+          </div>
+
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 fenix-card">
+            <div class="w-14 h-14 rounded-xl bg-amber-50 flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Лояльность и бонусы</h3>
+            <p class="fenix-copy">Прогрессивная бонусная система для всех игроков: приветственные пакеты, кешбэк и эксклюзивные бонусы.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="flex flex-col lg:flex-row gap-10">
-      <aside class="hidden lg:block w-64 shrink-0">
-        <div class="sticky top-24">
-          <h3 class="text-xs uppercase tracking-widest text-gray-500 mb-4 font-semibold">Содержание</h3>
-          <nav class="flex flex-col gap-1">
-            <a href="#about" class="toc-link text-sm text-gray-400 py-2 px-3 rounded-r-md">Обзор Fenix Casino</a>
-            <a href="#mirror" class="toc-link text-sm text-gray-400 py-2 px-3 rounded-r-md">Зеркало казино</a>
-            <a href="#play" class="toc-link text-sm text-gray-400 py-2 px-3 rounded-r-md">Играть онлайн</a>
-            <a href="#official" class="toc-link text-sm text-gray-400 py-2 px-3 rounded-r-md">Официальный сайт</a>
-            <a href="#bonuses" class="toc-link text-sm text-gray-400 py-2 px-3 rounded-r-md">Бонусы</a>
-            <a href="#faq" class="toc-link text-sm text-gray-400 py-2 px-3 rounded-r-md">Вопросы и ответы</a>
-          </nav>
-          <div class="mt-8 p-4 gradient-border">
-            <div class="flex items-center gap-2 mb-2">
-              <i data-lucide="shield-check" class="w-4 h-4 text-fenix-500"></i>
-              <span class="text-xs text-fenix-400 font-semibold">Инфо</span>
+    </section>
+
+    <section id="games" class="fenix-section">
+      <div class="container mx-auto px-6">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-12">
+            <div class="fenix-tag fenix-tag-secondary mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline mr-2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+              Играть Феникс Казино
             </div>
-            <p class="text-xs text-gray-500 leading-relaxed">Статья носит информационный характер. Азартные игры могут вызывать зависимость.</p>
+            <h2 class="fenix-heading">Игровой процесс без границ</h2>
+            <p class="fenix-copy max-w-2xl mx-auto">Официальный сайт Феникс Казино предоставляет доступ к более чем 500 играм от ведущих провайдеров индустрии.</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 class="text-2xl font-bold mb-4">RTP и честная игра</h3>
+              <p class="fenix-copy mb-6">Все игры прошли независимую сертификацию, подтверждающую честность алгоритмов. Средний процент возврата игрокам составляет 96.3% — выше среднего по рынку.</p>
+              
+              <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                <h4 class="font-bold text-lg mb-4">Популярные слоты в Феникс Казино</h4>
+                <ul class="space-y-3">
+                  <li class="flex items-center gap-3">
+                    <div class="w-2 h-2 rounded-full bg-rose-500"></div>
+                    <span>Book of Dead — высокая волатильность</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+                    <span>Starburst — классика жанра</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <div class="w-2 h-2 rounded-full bg-amber-500"></div>
+                    <span>Gate of Olympus — мега-волнатильность</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                    <span>Dragon's Tomb — с бонусными фриспинами</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="relative">
+              <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
+                <img src="http://static.photos/technology/1024x576/73" alt="Игровой процесс Fenix Casino" loading="lazy" class="w-full h-full object-cover">
+              </div>
+              
+              <div class="absolute -bottom-8 -right-8 w-full aspect-square max-w-md rounded-full border-8 border-white shadow-xl overflow-hidden">
+                <img src="http://static.photos/business/600x600/42" alt="Выигрышные символы" loading="lazy" class="w-full h-full object-cover">
+              </div>
+            </div>
           </div>
         </div>
-      </aside>
-      <main class="flex-1 min-w-0">
-        <section id="about" class="reveal mb-16">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-lg bg-fenix-600/15 flex items-center justify-center">
-              <i data-lucide="info" class="w-5 h-5 text-fenix-500"></i>
-            </div>
-            <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white">Обзор Fenix Casino</h2>
-          </div>
+      </div>
+    </section>
 
-          <div class="gradient-border p-6 sm:p-8 mb-8">
-            <img src="http://static.photos/technology/1200x630/77" alt="Fenix Casino обзор" class="w-full h-48 sm:h-64 object-cover rounded-lg mb-6">
-            <p class="text-gray-300 leading-relaxed mb-4">
-              <strong class="text-white">Fenix Casino</strong> (также известно как <strong class="text-white">Феникс Казино</strong>) — это популярная онлайн-платформа, предлагающая широкий ассортимент азартных развлечений. Казино работает на рынке уже несколько лет и за это время привлекло внимание множества игроков благодаря разнообразию игр и бонусной программе.
-            </p>
-            <p class="text-gray-300 leading-relaxed mb-4">
-              Платформа предоставляет доступ к слотам, настольным играм, рулетке и разделу с живыми дилерами. <strong class="text-white">Феникс казино онлайн</strong> работает круглосуточно, обеспечивая доступ к развлечениям в любое удобное время.
-            </p>
-            <p class="text-gray-300 leading-relaxed">
-              В каталоге представлено более 3000 игровых автоматов от ведущих провайдеров: NetEnt, Microgaming, Play'n GO, Pragmatic Play и других. Интерфейс казино доступен на русском языке, что делает навигацию удобной для русскоязычных игроков.
-            </p>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div class="gradient-border p-5 flex items-start gap-4">
-              <div class="w-10 h-10 rounded-lg bg-green-500/15 flex items-center justify-center shrink-0">
-                <i data-lucide="gamepad-2" class="w-5 h-5 text-green-400"></i>
-              </div>
-              <div>
-                <h3 class="text-white font-semibold mb-1">3000+ игр</h3>
-                <p class="text-sm text-gray-400">Слоты, рулетка, карты, лайв-казино</p>
-              </div>
-            </div>
-            <div class="gradient-border p-5 flex items-start gap-4">
-              <div class="w-10 h-10 rounded-lg bg-blue-500/15 flex items-center justify-center shrink-0">
-                <i data-lucide="smartphone" class="w-5 h-5 text-blue-400"></i>
-              </div>
-              <div>
-                <h3 class="text-white font-semibold mb-1">Мобильная версия</h3>
-                <p class="text-sm text-gray-400">Адаптивный дизайн для всех устройств</p>
-              </div>
-            </div>
-            <div class="gradient-border p-5 flex items-start gap-4">
-              <div class="w-10 h-10 rounded-lg bg-purple-500/15 flex items-center justify-center shrink-0">
-                <i data-lucide="gift" class="w-5 h-5 text-purple-400"></i>
-              </div>
-              <div>
-                <h3 class="text-white font-semibold mb-1">Бонусы</h3>
-                <p class="text-sm text-gray-400">Приветственный пакет и регулярные акции</p>
-              </div>
-            </div>
-            <div class="gradient-border p-5 flex items-start gap-4">
-              <div class="w-10 h-10 rounded-lg bg-fenix-500/15 flex items-center justify-center shrink-0">
-                <i data-lucide="headphones" class="w-5 h-5 text-fenix-400"></i>
-              </div>
-              <div>
-                <h3 class="text-white font-semibold mb-1">Поддержка 24/7</h3>
-                <p class="text-sm text-gray-400">Онлайн-чат и email поддержка</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section id="mirror" class="reveal mb-16">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-lg bg-fenix-600/15 flex items-center justify-center">
-              <i data-lucide="copy" class="w-5 h-5 text-fenix-500"></i>
-            </div>
-            <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white">Зеркало Fenix Casino</h2>
-          </div>
-
-          <div class="gradient-border p-6 sm:p-8 mb-6">
-            <div class="tag-badge inline-flex items-center gap-1.5 rounded-full px-3 py-1 mb-4">
-              <i data-lucide="search" class="w-3 h-3 text-fenix-400"></i>
-              <span class="text-fenix-400 text-xs font-medium">fenix casino зеркало / феникс казино зеркало рабочее</span>
-            </div>
-
-            <p class="text-gray-300 leading-relaxed mb-4">
-              <strong class="text-white">Fenix casino зеркало</strong> — это альтернативный адрес сайта, который позволяет получить доступ к казино, когда основной домен недоступен. Зеркала являются точной копией основного ресурса и сохраняют все данные аккаунта.
-            </p>
-
-            <div class="bg-fenix-950/50 border border-fenix-800/30 rounded-xl p-5 mb-5">
-              <div class="flex items-start gap-3">
-                <i data-lucide="alert-triangle" class="w-5 h-5 text-fenix-500 shrink-0 mt-0.5"></i>
-                <div>
-                  <h4 class="text-white font-semibold mb-1">Как найти рабочее зеркало?</h4>
-                  <p class="text-sm text-gray-400 leading-relaxed">
-                    <strong class="text-fenix-400">Феникс казино зеркало рабочее</strong> можно найти через: подписку на email-рассылку казино, официальные Telegram-каналы, службу техподдержки. Не используйте сторонние сайты — они могут быть фишинговыми.
-                  </p>
+    <section id="bonuses" class="fenix-section bg-gradient-to-br from-orange-50 to-rose-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-5xl mx-auto">
+          <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-200">
+            <div class="grid md:grid-cols-2">
+              <div class="p-10">
+                <div class="fenix-tag fenix-tag-primary inline-block mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline mr-2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  Приветственный пакет
+                </div>
+                
+                <h2 class="fenix-heading mb-6">Зарегистрируйтесь и получите до 150% бонуса</h2>
+                <p class="fenix-copy mb-8">Официальный сайт Феникс Казино рад приветствовать новых игроков. Зарегистрируйтесь, подтвердите номер телефона и получите первый депозит в размере 100% до 5000₽. Далее вам доступны бонусы на следующие депозиты:</p>
+                
+                <div class="space-y-4">
+                  <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+                      <span class="text-blue-700 font-bold">1</span>
+                    </div>
+                    <div>
+                      <h4 class="font-bold">Первый депозит — 100%</h4>
+                      <p class="text-slate-600">До 5000₽ + 100 фриспинов</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+                      <span class="text-blue-700 font-bold">2</span>
+                    </div>
+                    <div>
+                      <h4 class="font-bold">Второй депозит — 50%</h4>
+                      <p class="text-slate-600"> До 10000₽ + 150 фриспинов</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+                      <span class="text-blue-700 font-bold">3</span>
+                    </div>
+                    <div>
+                      <h4 class="font-bold">Третий депозит — 50%</h4>
+                      <p class="text-slate-600">До 15000₽ + 200 фриспинов</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <p class="text-gray-300 leading-relaxed mb-4">
-              <strong class="text-white">Феникс казино зеркало</strong> полностью дублирует функционал основного сайта: все игры, бонусы, баланс и настройки профиля остаются доступными. Разница заключается только в веб-адресе.
-            </p>
-            <h3 class="text-white font-heading font-bold text-lg mb-3 mt-6">Преимущества использования зеркала</h3>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-400 shrink-0 mt-0.5"></i>
-                <span class="text-gray-300">Полный доступ ко всему каталогу игр</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-400 shrink-0 mt-0.5"></i>
-                <span class="text-gray-300">Сохранение баланса и прогресса</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-400 shrink-0 mt-0.5"></i>
-                <span class="text-gray-300">Безопасность данных и транзакций</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-400 shrink-0 mt-0.5"></i>
-                <span class="text-gray-300">Быстрое переключение без VPN</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section id="play" class="reveal mb-16">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-lg bg-fenix-600/15 flex items-center justify-center">
-              <i data-lucide="play-circle" class="w-5 h-5 text-fenix-500"></i>
-            </div>
-            <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white">Играть в Fenix Casino</h2>
-          </div>
-
-          <div class="gradient-border p-6 sm:p-8 mb-6">
-            <div class="tag-badge inline-flex items-center gap-1.5 rounded-full px-3 py-1 mb-4">
-              <i data-lucide="gamepad-2" class="w-3 h-3 text-fenix-400"></i>
-              <span class="text-fenix-400 text-xs font-medium">fenix casino играть / феникс казино играть</span>
-            </div>
-
-            <p class="text-gray-300 leading-relaxed mb-5">
-              Чтобы <strong class="text-white">играть в Fenix Casino</strong>, достаточно пройти простую регистрацию. Процедура занимает пару минут и требует указания email, пароля и выбора валюты аккаунта.
-            </p>
-
-            <img src="fenix-wordmark.svg" alt="Играть в Fenix Casino" class="w-full h-48 sm:h-56 object-cover rounded-lg mb-6">
-
-            <h3 class="text-white font-heading font-bold text-lg mb-4">Как начать играть</h3>
-            <div class="space-y-4">
-              <div class="flex items-start gap-4">
-                <div class="w-8 h-8 rounded-full bg-fenix-600/20 flex items-center justify-center shrink-0">
-                  <span class="text-fenix-400 font-bold text-sm">1</span>
-                </div>
-                <div>
-                  <h4 class="text-white font-semibold">Регистрация</h4>
-                  <p class="text-sm text-gray-400">Укажите email, создайте пароль и выберите валюту</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-4">
-                <div class="w-8 h-8 rounded-full bg-fenix-600/20 flex items-center justify-center shrink-0">
-                  <span class="text-fenix-400 font-bold text-sm">2</span>
-                </div>
-                <div>
-                  <h4 class="text-white font-semibold">Верификация</h4>
-                  <p class="text-sm text-gray-400">Подтвердите email и заполните профиль</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-4">
-                <div class="w-8 h-8 rounded-full bg-fenix-600/20 flex items-center justify-center shrink-0">
-                  <span class="text-fenix-400 font-bold text-sm">3</span>
-                </div>
-                <div>
-                  <h4 class="text-white font-semibold">Депозит</h4>
-                  <p class="text-sm text-gray-400">Пополните счёт любым удобным способом</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-4">
-                <div class="w-8 h-8 rounded-full bg-fenix-600/20 flex items-center justify-center shrink-0">
-                  <span class="text-fenix-400 font-bold text-sm">4</span>
-                </div>
-                <div>
-                  <h4 class="text-white font-semibold">Выбор игры</h4>
-                  <p class="text-sm text-gray-400">Выбирайте из 3000+ слотов и настольных игр</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-6 p-4 bg-dark-900/80 rounded-xl border border-white/5">
-              <p class="text-sm text-gray-400">
-                <i data-lucide="info" class="w-4 h-4 inline text-fenix-500 mr-1"></i>
-                <strong class="text-fenix казино играть</strong> можно как на реальные деньги, так и в демо-режиме. Демо-версии позволяют ознакомиться с механикой слотов без финансовых рисков.
-              </p>
-            </div>
-          </div>
-
-          <!-- Game categories -->
-          <div class="grid sm:grid-cols-3 gap-4">
-            <div class="gradient-border p-5 text-center group cursor-pointer">
-              <div class="w-14 h-14 mx-auto rounded-xl bg-fenix-600/10 flex items-center justify-center mb-3 group-hover:bg-fenix-600/20 transition-colors">
-                <i data-lucide="cherry" class="w-7 h-7 text-fenix-500"></i>
-              </div>
-              <h3 class="text-white font-semibold mb-1">Слоты</h3>
-              <p class="text-xs text-gray-500">2500+ автоматов</p>
-            </div>
-            <div class="gradient-border p-5 text-center group cursor-pointer">
-              <div class="w-14 h-14 mx-auto rounded-xl bg-red-600/10 flex items-center justify-center mb-3 group-hover:bg-red-600/20 transition-colors">
-                <i data-lucide="circle-dot" class="w-7 h-7 text-red-400"></i>
-              </div>
-              <h3 class="text-white font-semibold mb-1">Рулетка</h3>
-              <p class="text-xs text-gray-500">Европейская, французская</p>
-            </div>
-            <div class="gradient-border p-5 text-center group cursor-pointer">
-              <div class="w-14 h-14 mx-auto rounded-xl bg-blue-600/10 flex items-center justify-center mb-3 group-hover:bg-blue-600/20 transition-colors">
-                <i data-lucide="radio" class="w-7 h-7 text-blue-400"></i>
-              </div>
-              <h3 class="text-white font-semibold mb-1">Live Казино</h3>
-              <p class="text-xs text-gray-500">Живые дилеры 24/7</p>
-            </div>
-          </div>
-        </section>
-        <section id="official" class="reveal mb-16">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-lg bg-fenix-600/15 flex items-center justify-center">
-              <i data-lucide="globe" class="w-5 h-5 text-fenix-500"></i>
-            </div>
-            <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white">Официальный сайт Fenix Casino</h2>
-          </div>
-          <div class="gradient-border p-6 sm:p-8 mb-6">
-            <div class="tag-badge inline-flex items-center gap-1.5 rounded-full px-3 py-1 mb-4">
-              <i data-lucide="shield" class="w-3 h-3 text-fenix-400"></i>
-              <span class="text-fenix-400 text-xs font-medium">fenix casino официальный / феникс казино официальный сайт</span>
-            </div>
-            <p class="text-gray-300 leading-relaxed mb-4">
-              <strong class="text-white">Fenix casino официальный сайт</strong> — это основной веб-ресурс казино, который обеспечивает доступ ко всем функциям платформы. Здесь пользователи могут зарегистрироваться, пополнить счёт, играть и выводить выигрыши.
-            </p>
-            <p class="text-gray-300 leading-relaxed mb-5">
-              <strong class="text-white">Феникс казино официальный сайт</strong> имеет лицензию и использует SSL-шифрование для защиты данных пользователей. Все финансовые операции защищены протоколами безопасности.
-            </p>
-            <div class="grid sm:grid-cols-2 gap-4 mb-6">
-              <div class="bg-dark-900/60 rounded-xl p-4 border border-white/5">
-                <div class="flex items-center gap-2 mb-2">
-                  <i data-lucide="lock" class="w-4 h-4 text-green-400"></i>
-                  <h4 class="text-white text-sm font-semibold">Безопасность</h4>
-                </div>
-                <p class="text-xs text-gray-400">SSL-шифрование и защита персональных данных</p>
-              </div>
-              <div class="bg-dark-900/60 rounded-xl p-4 border border-white/5">
-                <div class="flex items-center gap-2 mb-2">
-                  <i data-lucide="credit-card" class="w-4 h-4 text-blue-400"></i>
-                  <h4 class="text-white text-sm font-semibold">Платежи</h4>
-                </div>
-                <p class="text-xs text-gray-400">Карты, электронные кошельки, криптовалюта</p>
-              </div>
-              <div class="bg-dark-900/60 rounded-xl p-4 border border-white/5">
-                <div class="flex items-center gap-2 mb-2">
-                  <i data-lucide="languages" class="w-4 h-4 text-purple-400"></i>
-                  <h4 class="text-white text-sm font-semibold">Языки</h4>
-                </div>
-                <p class="text-xs text-gray-400">Русский, английский и другие</p>
-              </div>
-              <div class="bg-dark-900/60 rounded-xl p-4 border border-white/5">
-                <div class="flex items-center gap-2 mb-2">
-                  <i data-lucide="coins" class="w-4 h-4 text-fenix-400"></i>
-                  <h4 class="text-white text-sm font-semibold">Валюты</h4>
-                </div>
-                <p class="text-xs text-gray-400">RUB, USD, EUR, BTC и другие</p>
-              </div>
-            </div>
-            <p class="text-gray-300 leading-relaxed mb-4">
-              <strong class="text-white">Феникс казино официальный</strong> ресурс регулярно обновляется: добавляются новые игры, проводятся турниры и акции. Рекомендуем добавлять сайт в закладки для быстрого доступа.
-            </p>
-            <div class="bg-fenix-950/50 border border-fenix-800/30 rounded-xl p-5">
-              <div class="flex items-start gap-3">
-                <i data-lucide="shield-check" class="w-5 h-5 text-green-400 shrink-0 mt-0.5"></i>
-                <div>
-                  <h4 class="text-white font-semibold mb-1">Как отличить официальный сайт</h4>
-                  <p class="text-sm text-gray-400 leading-relaxed">
-                    Проверяйте наличие SSL-сертификата (замок в адресной строке), совпадение дизайна с официальными скриншотами, и работающие контакты поддержки. <strong class="text-fenix-400">Fenix casino официальный</strong> сайт всегда использует защищённое соединение HTTPS.
-                  </p>
-                </div>
+              
+              <div class="bg-gradient-to-br from-blue-500 to-blue-700 p-10 text-white flex flex-col justify-center">
+                <h3 class="text-3xl font-bold mb-6">Феноменальные условия</h3>
+                <ul class="space-y-4 mb-8">
+                  <li class="flex items-center gap-3">
+                    <div class="w-6 h-6 rounded-full bg-emerald-400 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <span>Нет верификации для первого депозита</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <div class="w-6 h-6 rounded-full bg-emerald-400 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <span>Фриспины без вложений</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <div class="w-6 h-6 rounded-full bg-emerald-400 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <span>Вывод выигрыша без оборотов</span>
+                  </li>
+                </ul>
+                <a href="#" class="bg-white text-blue-600 hover:bg-slate-100 font-bold py-4 px-8 rounded-xl text-center inline-block transition-colors w-full shadow-lg">
+                  Получить приветственный пакет
+                </a>
               </div>
             </div>
           </div>
-        </section>
-        <section id="bonuses" class="reveal mb-16">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-lg bg-fenix-600/15 flex items-center justify-center">
-              <i data-lucide="gift" class="w-5 h-5 text-fenix-500"></i>
-            </div>
-            <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white">Бонусы Fenix Casino</h2>
-          </div>
-          <div class="gradient-border p-6 sm:p-8 mb-6">
-            <p class="text-gray-300 leading-relaxed mb-6">
-              <strong class="text-white">Феникс казино онлайн</strong> предлагает разнообразную бонусную программу как для новых, так и для постоянных игроков. Бонусы позволяют увеличить стартовый капитал и продлить игровую сессию.
-            </p>
-            <div class="space-y-4">
-              <div class="bg-gradient-to-r from-fenix-900/40 to-dark-900 rounded-xl p-5 border border-fenix-800/20">
-                <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-white font-semibold">Приветственный бонус</h3>
-                  <span class="text-fenix-400 font-bold text-lg">100%</span>
-                </div>
-                <p class="text-sm text-gray-400 mb-3">Удвоение первого депозита до определённой суммы</p>
-                <div class="flex items-center gap-4 text-xs text-gray-500">
-                  <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> Вейджер: x35</span>
-                  <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i> 7 дней</span>
-                </div>
-              </div>
-              <div class="bg-gradient-to-r from-purple-900/30 to-dark-900 rounded-xl p-5 border border-purple-800/20">
-                <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-white font-semibold">Фриспины</h3>
-                  <span class="text-purple-400 font-bold text-lg">50 FS</span>
-                </div>
-                <p class="text-sm text-gray-400 mb-3">Бесплатные вращения в популярных слотах при регистрации</p>
-                <div class="flex items-center gap-4 text-xs text-gray-500">
-                  <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> Вейджер: x30</span>
-                  <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i> 3 дня</span>
-                </div>
-              </div>
-              <div class="bg-gradient-to-r from-blue-900/30 to-dark-900 rounded-xl p-5 border border-blue-800/20">
-                <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-white font-semibold">Кэшбэк</h3>
-                  <span class="text-blue-400 font-bold text-lg">10%</span>
-                </div>
-                <p class="text-sm text-gray-400 mb-3">Возврат части проигранных средств каждую неделю</p>
-                <div class="flex items-center gap-4 text-xs text-gray-500">
-                  <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> Вейджер: x5</span>
-                  <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i> Каждый понедельник</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section id="faq" class="reveal mb-16">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-lg bg-fenix-600/15 flex items-center justify-center">
-              <i data-lucide="help-circle" class="w-5 h-5 text-fenix-500"></i>
-            </div>
-            <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white">Частые вопросы</h2>
-          </div>
-          <div class="space-y-3">
-            <div class="faq-item gradient-border overflow-hidden">
-              <button class="faq-btn w-full flex items-center justify-between p-5 text-left" onclick="toggleFaq(this)">
-                <span class="text-white font-semibold pr-4">Как найти рабочее зеркало Fenix Casino?</span>
-                <i data-lucide="chevron-down" class="w-5 h-5 text-fenix-500 shrink-0 transition-transform duration-300"></i>
-              </button>
-              <div class="faq-answer px-5 pb-5">
-                <p class="text-gray-400 text-sm leading-relaxed">
-                  Рабочее зеркало можно найти через email-рассылку казино, официальный Telegram-канал или обратившись в службу поддержки. Не рекомендуется искать зеркала на сторонних ресурсах из-за риска фишинга. <strong class="text-fenix-400">Феникс казино зеркало рабочее</strong> всегда использует HTTPS-протокол.
-                </p>
-              </div>
-            </div>
-            <div class="faq-item gradient-border overflow-hidden">
-              <button class="faq-btn w-full flex items-center justify-between p-5 text-left" onclick="toggleFaq(this)">
-                <span class="text-white font-semibold pr-4">Можно ли играть бесплатно?</span>
-                <i data-lucide="chevron-down" class="w-5 h-5 text-fenix-500 shrink-0 transition-transform duration-300"></i>
-              </button>
-              <div class="faq-answer px-5 pb-5">
-                <p class="text-gray-400 text-sm leading-relaxed">
-                  Да, <strong class="text-fenix-400">fenix casino играть</strong> можно в демо-режиме без регистрации. Демо-версии доступны для большинства слотов и позволяют ознакомиться с механикой игры без финансовых рисков.
-                </p>
-              </div>
-            </div>
-            <div class="faq-item gradient-border overflow-hidden">
-              <button class="faq-btn w-full flex items-center justify-between p-5 text-left" onclick="toggleFaq(this)">
-                <span class="text-white font-semibold pr-4">Какие методы пополнения доступны?</span>
-                <i data-lucide="chevron-down" class="w-5 h-5 text-fenix-500 shrink-0 transition-transform duration-300"></i>
-              </button>
-              <div class="faq-answer px-5 pb-5">
-                <p class="text-gray-400 text-sm leading-relaxed">
-                  <strong class="text-fenix-400">Феникс казино официальный сайт</strong> поддерживает банковские карты (Visa, MasterCard), электронные кошельки и криптовалюту. Минимальная сумма пополнения зависит от выбранного метода и обычно составляет от 500 рублей.
-                </p>
-              </div>
-            </div>
-            <div class="faq-item gradient-border overflow-hidden">
-              <button class="faq-btn w-full flex items-center justify-between p-5 text-left" onclick="toggleFaq(this)">
-                <span class="text-white font-semibold pr-4">Сколько времени занимает вывод средств?</span>
-                <i data-lucide="chevron-down" class="w-5 h-5 text-fenix-500 shrink-0 transition-transform duration-300"></i>
-              </button>
-              <div class="faq-answer px-5 pb-5">
-                <p class="text-gray-400 text-sm leading-relaxed">
-                  Вывод на электронные кошельки обычно занимает от нескольких минут до 24 часов. На банковские карты — от 1 до 3 рабочих дней. Криптовалютные выплаты обрабатываются быстрее всего.
-                </p>
-              </div>
-            </div>
-            <div class="faq-item gradient-border overflow-hidden">
-              <button class="faq-btn w-full flex items-center justify-between p-5 text-left" onclick="toggleFaq(this)">
-                <span class="text-white font-semibold pr-4">Безопасно ли играть в Fenix Casino?</span>
-                <i data-lucide="chevron-down" class="w-5 h-5 text-fenix-500 shrink-0 transition-transform duration-300"></i>
-              </button>
-              <div class="faq-answer px-5 pb-5">
-                <p class="text-gray-400 text-sm leading-relaxed">
-                  <strong class="text-fenix-400">Fenix casino официальный</strong> сайт использует SSL-шифрование для защиты данных. Игры работают на генераторах случайных чисел (RNG), сертифицированных независимыми аудиторами. Тем не менее, помните об ответственной игре.
-                </p>
-              </div>
-            </div>
-            <div class="faq-item gradient-border overflow-hidden">
-              <button class="faq-btn w-full flex items-center justify-between p-5 text-left" onclick="toggleFaq(this)">
-                <span class="text-white font-semibold pr-4">Есть ли мобильная версия казино?</span>
-                <i data-lucide="chevron-down" class="w-5 h-5 text-fenix-500 shrink-0 transition-transform duration-300"></i>
-              </button>
-              <div class="faq-answer px-5 pb-5">
-                <p class="text-gray-400 text-sm leading-relaxed">
-                  Да, <strong class="text-fenix-400">феникс казино онлайн</strong> полностью адаптировано для мобильных устройств. Сайт автоматически подстраивается под размер экрана смартфона или планшета, сохраняя весь функционал.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="reveal">
-          <div class="bg-dark-900/50 border border-white/5 rounded-xl p-6 text-center">
-            <i data-lucide="alert-circle" class="w-8 h-8 text-fenix-600 mx-auto mb-3"></i>
-            <p class="text-sm text-gray-500 leading-relaxed max-w-xl mx-auto">
-              Данная статья носит исключительно информационный характер и не является призывом к азартным играм. Азартные игры могут вызывать зависимость. Играйте ответственно. Лицам до 18 лет доступ к казино запрещён.
-            </p>
-          </div>
-        </section>
-      </main>
-    </div>
-  </div>
-  <footer class="border-t border-white/5 bg-dark-950">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-fenix-500 to-fenix-700 flex items-center justify-center">
-              <i data-lucide="flame" class="w-4 h-4 text-white"></i>
-            </div>
-            <span class="font-heading font-bold text-white">Fenix Casino</span>
-          </div>
-          <p class="text-sm text-gray-500 leading-relaxed">Информационный обзор онлайн-казино. Все материалы представлены в ознакомительных целях.</p>
         </div>
+      </div>
+    </section>
+
+    <section id="mobile" class="fenix-section bg-slate-900">
+      <div class="container mx-auto px-6">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+          <div class="flex-1">
+            <div class="fenix-tag text-white border border-slate-700 bg-slate-800/50 inline-block mb-6 px-3 py-1 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline mr-2"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+              Мобильная платформа
+            </div>
+            
+            <h2 class="text-4xl font-bold mb-6 text-white">Феникс Казино онлайн в любом месте и времени</h2>
+            <p class="text-slate-300 mb-8 text-lg leading-relaxed">Официальный сайт оптимизирован для мобильных устройств. Играйте в любимые слоты прямо со смартфона без установки приложений.</p>
+            
+            <div class="flex flex-wrap gap-6">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                </div>
+                <div>
+                  <div class="font-bold text-white">iOS</div>
+                  <div class="text-sm text-slate-400">Оптимизировано для iPhone</div>
+                </div>
+              </div>
+              
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                </div>
+                <div>
+                  <div class="font-bold text-white">Android</div>
+                  <div class="text-sm text-slate-400">Адаптивная версия</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex-1">
+            <div class="relative">
+              <div class="aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-slate-700">
+                <img src="http://static.photos/mobile/600x800/145" alt="Мобильный Феникс Казино" loading="lazy" class="w-full h-full object-cover">
+              </div>
+              
+              <div class="absolute -bottom-6 -right-6 w-24 h-40 rounded-2xl bg-white shadow-xl border border-slate-200 flex flex-col items-center justify-center p-4">
+                <div class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div class="font-bold text-slate-900">Бонус</div>
+                <div class="text-sm text-green-600">500₽ за регистрацию</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="fenix-section">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="fenix-heading">Часто задаваемые вопросы</h2>
+            <p class="fenix-copy">У вас есть вопросы? Мы собрали самые популярные вопросы и ответы на них, чтобы вы могли быстро адаптироваться в Феникс Казино.</p>
+          </div>
+
+          <div class="space-y-4">
+            <details class="bg-white rounded-xl shadow-sm border border-slate-200 open:border-amber-300 open:shadow-md transition-all">
+              <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-lg">
+                <span>Какие зеркала у Феникс Казино?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="open:rotate-180 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
+              </summary>
+              <div class="px-6 pb-6 text-slate-600">
+                <p class="mb-3">Официальный сайт Феникс Казино автоматически перенаправляет игроков на рабочее зеркало в случае блокировки основного домена. Вы всегда можете найти актуальные зеркала на официальном ресурсе.</p>
+              </div>
+            </details>
+
+            <details class="bg-white rounded-xl shadow-sm border border-slate-200 open:border-amber-300 open:shadow-md transition-all">
+              <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-lg">
+                <span>Нужно ли регистрироваться для игры?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="open:rotate-180 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
+              </summary>
+              <div class="px-6 pb-6 text-slate-600">
+                <p class="mb-3">Вы можете играть в демо-режиме без регистрации, но для зачисления бонусов, депозита и вывода выигрыша необходимо пройти стандартную верификацию.</p>
+              </div>
+            </details>
+
+            <details class="bg-white rounded-xl shadow-sm border border-slate-200 open:border-amber-300 open:shadow-md transition-all">
+              <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-lg">
+                <span>Какие методы оплаты доступны?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="open:rotate-180 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
+              </summary>
+              <div class="px-6 pb-6 text-slate-600">
+                <p class="mb-3">В Феникс Казино используются все популярные платежные системы: банковские карты (Visa, MasterCard), электронные кошельки (QIWI, WebMoney), криптовалюты (Bitcoin, Ethereum, Tether) и системные монеты.</p>
+              </div>
+            </details>
+
+            <details class="bg-white rounded-xl shadow-sm border border-slate-200 open:border-amber-300 open:shadow-md transition-all">
+              <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-lg">
+                <span>Есть ли лицензия у Феникс Казино?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="open:rotate-180 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
+              </summary>
+              <div class="px-6 pb-6 text-slate-600">
+                <p class="mb-3">Да, Феникс Казино имеет лицензию от Curacao eGaming. Каждая игра проходит независимую сертификацию на честность алгоритмов. Уровень защиты средств игроков соответствует международным стандартам.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fenix-section bg-gradient-to-br from-orange-500 to-red-600 text-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="fenix-tag border border-white/30 bg-white/10 text-white inline-block mb-8 backdrop-blur-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline mr-2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+            Актуальное зеркало
+          </div>
+          
+          <h2 class="fenix-heading mb-6">Готовы начать выигрывать? Нажмите кнопку ниже</h2>
+          <p class="fenix-copy mb-10 max-w-2xl mx-auto">Официальный сайт Феникс Казино всегда функционирует без простоев. Зарегистрируйтесь и получите бонус за первый депозит уже сегодня!</p>
+          
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="https://fenix-casino-official.site" class="fenix-cta-btn bg-white text-orange-600 hover:bg-slate-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Перейти на официальный сайт
+            </a>
+            <a href="https://fenix-casino-mirror.com" class="fenix-cta-btn bg-orange-700 text-white hover:bg-orange-800 border border-orange-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
+              Использовать зеркало
+            </a>
+          </div>
+          
+          <p class="mt-8 text-sm text-white/70">
+            Игра может вызывать зависимость. Играйте ответственно. 18+
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-900 text-slate-300 border-t border-slate-800">
+    <div class="container mx-auto px-6 py-12">
+      <div class="grid md:grid-cols-4 gap-10">
         <div>
-          <h4 class="text-white font-semibold mb-3 text-sm">Навигация</h4>
-          <ul class="space-y-2">
-            <li><a href="#about" class="text-sm text-gray-500 hover:text-fenix-500 transition-colors">Обзор</a></li>
-            <li><a href="#mirror" class="text-sm text-gray-500 hover:text-fenix-500 transition-colors">Зеркало</a></li>
-            <li><a href="#play" class="text-sm text-gray-500 hover:text-fenix-500 transition-colors">Играть</a></li>
-            <li><a href="#official" class="text-sm text-gray-500 hover:text-fenix-500 transition-colors">Официальный сайт</a></li>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white font-bold">
+              F
+            </div>
+            <span class="font-bold text-xl tracking-tight">Fenix</span>
+          </div>
+          <p class="text-sm leading-relaxed text-slate-400">
+            Fenix Casino — официальный сайт легендарного онлайн-казино с широким ассортиментом игр и выигрышами, которые достойны вашего внимания.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-lg mb-4 text-white">Ресурсы</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-orange-400 transition-colors">О?<span class="sr-only">(+)"></span>фициальный сайт</a></li>
+            <li><a href="#" class="hover:text-orange-400 transition-colors">Феникс Казино казино</a></li>
+            <li><a href="#" class="hover:text-orange-400 transition-colors">Зеркало Феникс Казино</a></li>
+            <li><a href="#" class="hover:text-orange-400 transition-colors">Играть онлайн</a></li>
           </ul>
         </div>
+
         <div>
-          <h4 class="text-white font-semibold mb-3 text-sm">Ключевые слова</h4>
-          <ul class="space-y-2">
-            <li><span class="text-sm text-gray-500">fenix casino</span></li>
-            <li><span class="text-sm text-gray-500">феникс казино</span></li>
-            <li><span class="text-sm text-gray-500">fenix casino зеркало</span></li>
-            <li><span class="text-sm text-gray-500">феникс казино официальный</span></li>
+          <h3 class="font-bold text-lg mb-4 text-white">Игры</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-orange-400 transition-colors">Слоты</a></li>
+            <li><a href="#" class="hover:text-orange-400 transition-colors">Рулетки</a></li>
+            <li><a href="#" class="hover:text-orange-400 transition-colors">Игры с цензом</a></li>
+            <li><a href="#" class="hover:text-orange-400 transition-colors">Турниры</a></li>
           </ul>
         </div>
+
         <div>
-          <h4 class="text-white font-semibold mb-3 text-sm">Информация</h4>
-          <ul class="space-y-2">
-            <li class="text-sm text-gray-500">18+</li>
-            <li class="text-sm text-gray-500">Ответственная игра</li>
-            <li class="text-sm text-gray-500">Информационный ресурс</li>
+          <h3 class="font-bold text-lg mb-4 text-white">Контакты</h3>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.2V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h9.4a1 1 0 0 1 .74.37l3.26 4.3Z"/><path d="M16 22h6"/></svg>
+              support@fenix-casino.com
+            </li>
+            <li class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              +7 (800) 555-01-99
+            </li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-xs text-gray-600">© 2025 Информационный обзор. Не является официальным ресурсом казино.</p>
-        <p class="text-xs text-gray-600">18+ · Играйте ответственно</p>
+      
+      <div class="border-t border-slate-800 mt-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-sm text-slate-400">
+          © 2025 Fenix Casino. Все права защищены.
+        </div>
+        <div class="flex gap-6 text-sm">
+          <a href="#" class="hover:text-white transition-colors">Политика конфиденциальности</a>
+          <a href="#" class="hover:text-white transition-colors">Правила игры</a>
+          <a href="#" class="hover:text-white transition-colors">Ответственная игра</a>
+        </div>
       </div>
     </div>
   </footer>
-  <button id="backToTop" class="back-to-top fixed bottom-6 right-6 w-12 h-12 bg-fenix-600 hover:bg-fenix-500 text-white rounded-xl shadow-lg shadow-fenix-600/30 flex items-center justify-center transition-all hover:-translate-y-0.5 z-40">
-    <i data-lucide="arrow-up" class="w-5 h-5"></i>
-  </button>
 
   <script>
-    lucide.createIcons();
-    const menuBtn = document.getElementById('menuBtn');
-    const closeMenu = document.getElementById('closeMenu');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const menuOverlay = document.getElementById('menuOverlay');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-    function openMenu() {
-      mobileMenu.classList.add('open');
-      menuOverlay.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeMenuFn() {
-      mobileMenu.classList.remove('open');
-      menuOverlay.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-    menuBtn.addEventListener('click', openMenu);
-    closeMenu.addEventListener('click', closeMenuFn);
-    menuOverlay.addEventListener('click', closeMenuFn);
-    mobileLinks.forEach(link => link.addEventListener('click', closeMenuFn));
-    function toggleFaq(btn) {
-      const item = btn.closest('.faq-item');
-      const answer = item.querySelector('.faq-answer');
-      const icon = btn.querySelector('[data-lucide]');
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-btn [data-lucide]').forEach(i => i.style.transform = '');
-      if (!isOpen) {
-        answer.classList.add('open');
-        icon.style.transform = 'rotate(180deg)';
-      }
-    }
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
       });
-    }, { threshold: 0.1 });
-    revealElements.forEach(el => revealObserver.observe(el));
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) {
-        backToTop.classList.add('show');
-      } else {
-        backToTop.classList.remove('show');
-      }
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    const sections = document.querySelectorAll('section[id]');
-    const tocLinks = document.querySelectorAll('.toc-link');
-    function updateToc() {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        if (window.scrollY >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-      tocLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    }
-    window.addEventListener('scroll', updateToc);
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('shadow-lg', 'shadow-black/20');
-      } else {
-        navbar.classList.remove('shadow-lg', 'shadow-black/20');
-      }
     });
   </script>
 </body>
