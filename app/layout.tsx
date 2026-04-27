@@ -63,6 +63,7 @@ export const metadata: Metadata = {
     "криптоказино",
     "live казино",
   ],
+ 
   authors: [{ name: "Fenix Casino Editorial", url: SITE_URL }],
   creator: "Fenix Casino Editorial",
   publisher: SITE_NAME,
@@ -149,6 +150,10 @@ export const metadata: Metadata = {
     "twitter:data2": "RU / CIS",
   },
 }
+  other: {
+    "yandex-verification": "06d6347f3cd624db",
+  },
+};
 
 export const viewport: Viewport = {
   themeColor: [
