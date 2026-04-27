@@ -150,10 +150,6 @@ export const metadata: Metadata = {
     "twitter:data2": "RU / CIS",
   },
 }
-  other: {
-    "yandex-verification": "06d6347f3cd624db",
-  },
-};
 
 export const viewport: Viewport = {
   themeColor: [
@@ -299,7 +295,8 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
-<script
+     <meta name="yandex-verification" content="06d6347f3cd624db" />
+        <script
         dangerouslySetInnerHTML={{
           __html: `
             (function() {
