@@ -295,7 +295,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
-
+<meta name="yandex-verification" content="02765b381b2705b4" />
         <script
         dangerouslySetInnerHTML={{
           __html: `
