@@ -250,7 +250,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ru" dir="ltr">
+    <html lang="ru" dir="ltr" className="bg-[#0e0d20]">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
