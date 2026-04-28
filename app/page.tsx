@@ -4,6 +4,7 @@ import { FenixTopbar } from "@/components/fenix/topbar"
 import { HeroBanner } from "@/components/fenix/hero-banner"
 import { FenixFilters } from "@/components/fenix/filters"
 import { GameGrid } from "@/components/fenix/game-grid"
+import { SeoAbout } from "@/components/fenix/seo-about"
 import { FenixFooter } from "@/components/fenix/footer"
 
 export default function FenixApp() {
@@ -18,6 +19,7 @@ export default function FenixApp() {
             <FenixFilters />
             <GameGrid />
           </div>
+          <SeoAbout />
           <FenixFooter />
         </div>
       </div>
