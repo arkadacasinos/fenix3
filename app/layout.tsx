@@ -6,7 +6,7 @@ import "./globals.css"
 const _geist = Geist({ subsets: ["latin", "cyrillic"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
-const SITE_URL = "https://fenix-casino.example"
+const SITE_URL = "https://fenixcasino12.vercel.app"
 const SITE_NAME = "Fenix Casino Review"
 
 export const metadata: Metadata = {
@@ -295,7 +295,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
-     <meta name="yandex-verification" content="06d6347f3cd624db" />
+
         <script
         dangerouslySetInnerHTML={{
           __html: `
