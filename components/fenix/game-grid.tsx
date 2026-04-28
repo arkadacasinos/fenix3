@@ -11,7 +11,10 @@ export function GameGrid() {
           <article key={game.title} className="fx-game-card" tabIndex={0}>
             <div className="fx-game-thumb">
               <img
-                src={`/placeholder.svg?height=300&width=300&query=${encodeURIComponent(game.query)}`}
+                src={
+                  game.image ||
+                  `/placeholder.svg?height=300&width=300&query=${encodeURIComponent(game.query)}`
+                }
                 alt={game.title}
                 width={300}
                 height={300}

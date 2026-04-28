@@ -3,17 +3,18 @@ export type Game = {
   provider: string
   badge?: "hot" | "drops"
   query: string
+  image?: string
 }
 
 export const GAMES: Game[] = [
-  { title: "The Dog House", provider: "Pragmatic Play", badge: "hot", query: "slot game cover the dog house cartoon dogs neon" },
-  { title: "Le Fisherman", provider: "Hacksaw", badge: "hot", query: "slot game cover raccoon fisherman cartoon" },
-  { title: "Minotaur", provider: "Endorphina", badge: "hot", query: "slot game cover greek minotaur dark mythology" },
-  { title: "Highway To Hell", provider: "NolimitCity", badge: "hot", query: "slot game cover highway to hell flames biker" },
-  { title: "Ice Bass", provider: "Belatra", query: "slot game cover ice fishing fisherman bass cartoon" },
-  { title: "Gates of Olympus", provider: "Pragmatic Play", query: "slot game cover gates of olympus zeus golden" },
-  { title: "Lady Wolf Moon", provider: "Bgaming", badge: "hot", query: "slot game cover lady wolf moon megaways neon" },
-  { title: "Wild West Gold", provider: "Pragmatic Play", badge: "drops", query: "slot game cover wild west cowboy gold revolver" },
+  { title: "The Dog House", provider: "Pragmatic Play", badge: "hot", query: "slot game cover the dog house cartoon dogs neon", image: "/games/dog-house.jpg" },
+  { title: "Le Fisherman", provider: "Hacksaw", badge: "hot", query: "slot game cover raccoon fisherman cartoon", image: "/games/le-fisherman.jpg" },
+  { title: "Minotaur", provider: "Endorphina", badge: "hot", query: "slot game cover greek minotaur dark mythology", image: "/games/minotaur.jpg" },
+  { title: "Highway To Hell", provider: "NolimitCity", badge: "hot", query: "slot game cover highway to hell flames biker", image: "/games/highway-to-hell.jpg" },
+  { title: "Ice Bass", provider: "Belatra", query: "slot game cover ice fishing fisherman bass cartoon", image: "/games/ice-bass.jpg" },
+  { title: "Gates of Olympus", provider: "Pragmatic Play", query: "slot game cover gates of olympus zeus golden", image: "/games/gates-of-olympus.jpg" },
+  { title: "Lady Wolf Moon", provider: "Bgaming", badge: "hot", query: "slot game cover lady wolf moon megaways neon", image: "/games/lady-wolf-moon.jpg" },
+  { title: "Wild West Gold", provider: "Pragmatic Play", badge: "drops", query: "slot game cover wild west cowboy gold revolver", image: "/games/wild-west-gold.jpg" },
   { title: "MummyLand Treasures", provider: "Belatra", badge: "hot", query: "slot game cover mummy egypt treasures purple" },
   { title: "Flight Mode", provider: "NolimitCity", badge: "hot", query: "slot game cover airplane flight mode cartoon" },
   { title: "Sugar Rush Super", provider: "Pragmatic Play", badge: "hot", query: "slot game cover sugar rush candy pink" },
