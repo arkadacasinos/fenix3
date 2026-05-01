@@ -113,6 +113,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <meta name="yandex-verification" content="45dc3be430488a36" />
       </head>
       <body className="font-sans antialiased">
         {children}
