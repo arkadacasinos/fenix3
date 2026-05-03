@@ -113,7 +113,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-
+        <meta name="yandex-verification" content="fd716de25e12e73e" />
                 <script
           dangerouslySetInnerHTML={{
             __html: `
