@@ -9,7 +9,7 @@ const inter = Inter({
   variable: "--font-inter",
 })
 
-const title = `${siteConfig.name} — официальный сайт онлайн-казино | Феникс Казино`
+const title = `${siteConfig.name} — официальный сайт онлайн казино | Феникс Казино зеркало рабочее`
 const titleTemplate = `%s | ${siteConfig.name}`
 
 export const metadata: Metadata = {
