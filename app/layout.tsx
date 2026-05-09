@@ -9,7 +9,7 @@ const inter = Inter({
   variable: "--font-inter",
 })
 
-const title = `${siteConfig.name} — официальный сайт онлайн казино Феникс зеркало `
+const title = `${siteConfig.name} официальный сайт онлайн казино Феникс зеркало `
 const titleTemplate = `%s | ${siteConfig.name}`
 
 export const metadata: Metadata = {
@@ -24,7 +24,6 @@ export const metadata: Metadata = {
   authors: [...siteConfig.authors],
   creator: siteConfig.creator,
   publisher: siteConfig.name,
-  generator: "v0.app",
   category: "casino",
   referrer: "origin-when-cross-origin",
   alternates: {
@@ -46,7 +45,7 @@ export const metadata: Metadata = {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} — официальный сайт онлайн-казино`,
+        alt: `${siteConfig.name} - официальный сайт онлайн-казино`,
       },
     ],
   },
@@ -86,7 +85,9 @@ export const metadata: Metadata = {
   },
   other: {
     rating: "adult",
-    "yandex-verification": "0d4956929e148a1c",
+    other: {
+    "yandex": "noarchive",
+    "yandex-verification": "",
     "google-site-verification": "",
   },
 }
@@ -151,7 +152,6 @@ export default function RootLayout({
         {process.env.NODE_ENV === "production" && <Analytics />}
         <script
           type="application/ld+json"
-          // Structured data: Organization + WebSite with SearchAction
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
               {
