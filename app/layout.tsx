@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     rating: "adult",
     other: {
     "yandex": "noarchive",
-    "yandex-verification": "cfc62073cf693a53",
+    "yandex-verification": "",
     "google-site-verification": "",
   },
 }
