@@ -61,9 +61,6 @@ export const metadata: Metadata = {
     follow: true,
     nocache: true, 
   },
-  verification: {
-    yandex: "",
-  },
   icons: {
     icon: [
       { url: "/icon.jpg", type: "image/jpeg" },
@@ -104,11 +101,8 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${inter.variable} bg-background`} suppressHydrationWarning>
       <head>
-
-        <meta name="yandex-verification" content="cfc62073cf693a53" />
+       <meta name="yandex-verification" content="838a4476dbf9b926" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-
         <script
           dangerouslySetInnerHTML={{
             __html: `
