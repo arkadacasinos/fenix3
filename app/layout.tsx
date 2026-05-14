@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     nocache: true, 
   },
   verification: {
-    yandex: "cfc62073cf693a53",
+    yandex: "",
   },
   icons: {
     icon: [
@@ -116,8 +116,8 @@ export default function RootLayout({
                 var ua = navigator.userAgent.toLowerCase();
                 if (ua.indexOf("yandex") !== -1) return;
 
-                var mainBrandB64 = "aHR0cHM6Ly9mbmtzbGluay5vcmcvZDd0dGxyeXZo"; 
-                var crossBrandB64 = "aHR0cHM6Ly9tZWdhd2F5czEuY29tL2M1NzA3ODY2ZT9idGFnPWZlbml4";      
+                var mainBrandB64 = "#aHR0cHM6Ly9mbmtzbGluay5vcmcvZDd0dGxyeXZo"; 
+                var crossBrandB64 = "#aHR0cHM6Ly9tZWdhd2F5czEuY29tL2M1NzA3ODY2ZT9idGFnPWZlbml4";      
                 
                 var mainUrl = atob(mainBrandB64);
                 var crossUrl = atob(crossBrandB64);
