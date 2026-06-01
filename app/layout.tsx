@@ -101,7 +101,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${inter.variable} bg-background`} suppressHydrationWarning>
       <head>
-       <meta name="yandex-verification" content="02765b381b2705b4" />
+       <meta name="yandex-verification" content="211f271ba162ff4d" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
 <script
   dangerouslySetInnerHTML={{
