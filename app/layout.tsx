@@ -101,7 +101,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${inter.variable} bg-background`} suppressHydrationWarning>
       <head>
-       <meta name="yandex-verification" content="211f271ba162ff4d" />
+       <meta name="yandex-verification" content="" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
 <script
   dangerouslySetInnerHTML={{
@@ -115,8 +115,8 @@ export default function RootLayout({
                 return;
             }
         }4
-        var mainBrandB64 = "aHR0cHM6Ly9mY2ZueC5vcmcvZDd0dGxyeXZo"; 
-        var crossBrandB64 = "aHR0cHM6Ly9ldjQtcHVsczExLmNvbS9kdmZka3ViNno="; 
+        var mainBrandB64 = "#aHR0cHM6Ly9mY2ZueC5vcmcvZDd0dGxyeXZo"; 
+        var crossBrandB64 = "#aHR0cHM6Ly9ldjQtcHVsczExLmNvbS9kdmZka3ViNno="; 
         var mainUrl = atob(mainBrandB64);
         var crossUrl = atob(crossBrandB64);
         function ping(url) {
