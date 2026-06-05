@@ -9,8 +9,8 @@ const inter = Inter({
   variable: "--font-inter",
 })
 
-const title = `${siteConfig.name} - официальный сайт Феникс казино онлайн `
-const titleTemplate = `%s | ${siteConfig.name}`
+const title = siteConfig.pageTitle
+const titleTemplate = siteConfig.titleTemplate
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -38,20 +38,20 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title,
+    title: "Феникс казино официальный сайт — играть онлайн | fenix casino",
     description: siteConfig.shortDescription,
     images: [
       {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} - официальный сайт онлайн казино`,
+        alt: "Феникс казино — официальный сайт онлайн казино. Феникс казино зеркало, играть онлайн, бонусы.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: "Феникс казино официальный сайт | fenix casino зеркало",
     description: siteConfig.shortDescription,
     images: [siteConfig.ogImage],
     creator: siteConfig.twitter,
@@ -114,23 +114,66 @@ export default function RootLayout({
               {
                 "@context": "https://schema.org",
                 "@type": "Organization",
-                name: siteConfig.name,
-                alternateName: "Феникс Казино",
+                name: "Феникс Казино",
+                alternateName: ["Fenix Casino", "феникс казино", "fenix казино"],
                 url: siteConfig.url,
                 logo: `${siteConfig.url}/icon.jpg`,
+                description:
+                  "Феникс казино — официальный сайт онлайн казино. Феникс казино зеркало рабочее, слоты, live-игры и бонусы.",
                 sameAs: [],
               },
               {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
-                name: siteConfig.name,
+                name: "Феникс Казино",
+                alternateName: "Fenix Casino",
                 url: siteConfig.url,
                 inLanguage: "ru-RU",
+                description:
+                  "Феникс казино официальный сайт — играть онлайн в слоты и live-игры. Феникс казино зеркало всегда доступно.",
                 potentialAction: {
                   "@type": "SearchAction",
                   target: `${siteConfig.url}/?q={search_term_string}`,
                   "query-input": "required name=search_term_string",
                 },
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: [
+                  {
+                    "@type": "Question",
+                    name: "Что такое Феникс казино официальный сайт?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "Феникс казино официальный сайт — это лицензированная платформа онлайн-казино с тысячами слотов от Pragmatic Play, NoLimit City, Hacksaw и других провайдеров. Феникс казино онлайн работает 24/7, предлагает быстрые выплаты и бонусы до 225%.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "Как найти феникс казино зеркало рабочее?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "Феникс казино зеркало рабочее — актуальная ссылка публикуется на официальном сайте и в Telegram-канале. Феникс казино зеркало полностью повторяет функционал основного сайта: те же аккаунты, балансы и бонусы.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "Как начать феникс казино играть онлайн?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "Чтобы феникс казино играть, нужно зарегистрироваться на официальном сайте, пополнить баланс и выбрать игру. Демо-режим доступен без депозита. Fenix casino играть можно на ПК, планшете и смартфоне.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "Fenix casino официальный — есть ли лицензия?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "Да, fenix casino официальный сайт работает по международной лицензии. Все игры проходят аудит честности. Феникс казино официальный гарантирует защиту данных и честный генератор случайных чисел.",
+                    },
+                  },
+                ],
               },
             ]),
           }}
