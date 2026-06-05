@@ -1,51 +1,17 @@
-"use client"
-
-import { Flame, Play } from "lucide-react"
-import { GAMES } from "@/lib/games-data"
+import { games } from "@/lib/games"
+import { GameCard } from "./game-card"
 
 export function GameGrid() {
   return (
-    <section aria-label="Каталог игр">
-      <div className="fx-game-grid">
-        {GAMES.map((game) => (
-          <article key={game.title} className="fx-game-card" tabIndex={0}>
-            <div className="fx-game-thumb">
-              <img
-                src={
-                  game.image ||
-                  `/placeholder.svg?height=300&width=300&query=${encodeURIComponent(game.query)}`
-                }
-                alt={game.title}
-                width={300}
-                height={300}
-                loading="lazy"
-                className="fx-game-img"
-              />
-              {game.badge === "hot" && (
-                <span className="fx-badge fx-badge-hot">
-                  <Flame className="size-3" strokeWidth={2.5} />
-                  Горячие
-                </span>
-              )}
-              {game.badge === "drops" && (
-                <span className="fx-badge fx-badge-drops">DROPS &amp; WINS</span>
-              )}
-              <div className="fx-game-hover">
-                <button type="button" className="fx-play-btn" aria-label={`Играть в ${game.title}`}>
-                  <Play className="size-5" fill="currentColor" />
-                </button>
-              </div>
-            </div>
-            <div className="fx-game-meta">
-              <h3 className="fx-game-title">{game.title}</h3>
-              <p className="fx-game-provider">{game.provider}</p>
-            </div>
-          </article>
+    <section className="flex flex-col gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-3 md:gap-4">
+        {games.map((game) => (
+          <GameCard key={game.title} game={game} />
         ))}
       </div>
 
-      <div className="fx-load-more-wrap">
-        <button type="button" className="fx-load-more">
+      <div className="flex items-center justify-center pt-4">
+        <button className="h-11 px-6 rounded-lg bg-card border border-border text-sm font-medium text-foreground hover:bg-secondary hover:border-primary/40 transition">
           Смотреть больше
         </button>
       </div>
